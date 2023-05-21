@@ -1,10 +1,13 @@
 
 import Navbar from './components/Navbar'
-
+import ShoppingList from './components/ShoppingList'
+import './App.css'
 function App() {
   return (
-    <div className='bg-gray-600'>
+    <div>
       <Navbar />
+      <ShoppingList />
+      
     </div>
   )
 }

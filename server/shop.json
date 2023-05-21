@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 12",
+      "category": "Electronics",
+      "price": 79999
+    },
+    {
+      "id": 2,
+      "name": "Nike Air Max",
+      "category": "Shoes",
+      "price": 8999
+    },
+    {
+      "id": 3,
+      "name": "The Alchemist",
+      "category": "Books",
+      "price": 399
+    },
+    {
+      "id": 4,
+      "name": "Samsung Galaxy S21 Ultra",
+      "category": "Electronics",
+      "price": 105999
+    },
+    {
+      "id": 5,
+      "name": "Adidas Ultraboost 21",
+      "category": "Shoes",
+      "price": 16999
+    },
+    {
+      "id": 6,
+      "name": "The Da Vinci Code",
+      "category": "Books",
+      "price": 299
+    }
+  ]
+}
