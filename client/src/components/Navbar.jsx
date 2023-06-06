@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className='flex'>
-      <h1 className='flex-1 text-3xl text-gray-200 m-4 ml-6'>Shopify</h1>
+      <h1 className='flex-1 text-3xl text-gray-200 m-4 ml-6 '>Shopify</h1>
 
       <Link
         to='/cart'
