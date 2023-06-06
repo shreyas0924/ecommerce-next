@@ -14,7 +14,6 @@ const Product = ({ product }) => {
       key={product.id}
       className='card rounded-md min-w-[40%] m-4 shadow-md bg-gray-400 text-gray-800 product'
     >
-      {/* <img src={prod.image} alt={prod.name} className='w-full h-48 object-cover' /> */}
       <div className='p-4 text-gray-800 text-left'>
         <h1 className='text-xl font-semibold'>{product.name}</h1>
         <p className=' text-sm'>₹{product.price}</p>

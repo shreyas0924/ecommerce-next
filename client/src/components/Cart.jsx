@@ -1,22 +1,16 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
-
 const Cart = () => {
   const { cartItems, removeFromCart } = useContext(CartContext)
 
   return (
     <div className='cart'>
       {cartItems.map((item) => (
-        // <div key={item.id} className='cart-item'>
-        //   <p>{item.name}</p>
-        //   <button onClick={() => removeFromCart(item.id)}>Remove</button>
-        // </div>
         <div
           key={item.id}
           className='card rounded-md min-w-[40%] m-4 shadow-md bg-gray-400 text-gray-800 item'
         >
-          {/* <img src={prod.image} alt={prod.name} className='w-full h-48 object-cover' /> */}
           <div className='p-4 text-gray-800 text-left'>
             <h1 className='text-xl font-semibold'>{item.name}</h1>
             <p className=' text-sm'>₹{item.price}</p>
