@@ -1,1 +1,1 @@
-Ecommerce Application built using a
+Ecommerce Application built using React
