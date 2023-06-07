@@ -7,6 +7,7 @@ import Cart from './components/Cart.jsx'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { CartProvider } from './context/CartContext.jsx'
 
+
 const router = createBrowserRouter([
   {
     path: '/',

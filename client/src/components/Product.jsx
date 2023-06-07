@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import toast, { Toaster } from 'react-hot-toast'
 
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext)
 
   const handleAddToCart = () => {
     addToCart(product)
+    toast('Added to Cart')
   }
 
   return (
@@ -24,6 +26,27 @@ const Product = ({ product }) => {
         >
           Add to Cart
         </button>
+        <Toaster
+          position='bottom-center'
+          toastOptions={{
+            // Define default options
+            className: '',
+            duration: 2000,
+            style: {
+              background: 'rgb(55 65 81)',
+              color: '#fff',
+            },
+
+            // Default options for specific types
+            success: {
+              duration: 2000,
+              theme: {
+                primary: 'green',
+                secondary: 'black',
+              },
+            },
+          }}
+        />
       </div>
     </div>
   )

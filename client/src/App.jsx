@@ -1,8 +1,9 @@
-import Navbar from './components/Navbar'
+// import Navbar from './components/Navbar'
 import './App.css'
 import { useEffect, useState } from 'react'
 import Product from './components/Product'
 import Loading from './components/Loading'
+import Layout from './layout'
 function App() {
   const [data, setData] = useState(null)
 
@@ -28,14 +29,13 @@ function App() {
     )
   }
   return (
-    <div>
-      <Navbar />
+    <Layout>
       <div className='flex flex-wrap justify-center gap-5 m-6'>
         {data.map((product) => (
           <Product key={product.id} product={product} />
         ))}
       </div>
-    </div>
+    </Layout>
   )
 }
 
