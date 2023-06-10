@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   const { user } = useUser()
   return (
-    <div className='flex bg-[#131921] sticky top-0'>
+    <div className='flex bg-[#131921] sticky top-0 z-10'>
       <Link
         to='/'
         className='flex-1 text-3xl text-gray-200 m-4 ml-6 cursor-pointer hover:text-blue-300 '
