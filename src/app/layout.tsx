@@ -9,6 +9,7 @@ import {
 } from '@clerk/nextjs'
 import Navbar from './components/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,8 +29,10 @@ export default function RootLayout({
         <html lang='en' suppressHydrationWarning>
           <body className={inter.className}>
             <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-              <Navbar />
-              {children}
+              <Providers>
+                <Navbar />
+                {children}
+              </Providers>
             </ThemeProvider>
           </body>
         </html>
