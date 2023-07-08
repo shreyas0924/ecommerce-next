@@ -1,13 +1,12 @@
 import prisma from '@/lib/prisma'
 import Product from './components/Product'
-import getData from './api/products/route'
+import getData from './api/products'
 
 export default async function Home() {
   const data = await getData()
 
   return (
     <main>
-      
       <div className='mt-5 flex gap-4'>
         {data.map((item) => {
           return (
