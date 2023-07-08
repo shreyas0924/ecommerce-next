@@ -29,14 +29,18 @@ export default function RootLayout({
       <SignedIn>
         <html lang='en' suppressHydrationWarning>
           <body className={inter.className}>
-            <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-              <Providers>
-                <CartProvider>
+            <CartProvider>
+              <ThemeProvider
+                attribute='class'
+                defaultTheme='system'
+                enableSystem
+              >
+                {/* <Providers> */}
                   <Navbar />
                   {children}
-                </CartProvider>
-              </Providers>
-            </ThemeProvider>
+                {/* </Providers> */}
+              </ThemeProvider>
+            </CartProvider>
           </body>
         </html>
       </SignedIn>

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useContext } from 'react'
 import { CartContext, ProductType } from '../context/CartContext'
 import toast, { Toaster } from 'react-hot-toast'
@@ -23,24 +23,27 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   const handleAddToCart = () => {
     addToCart(product)
     toast('Added to Cart')
-    
   }
   return (
     <>
-      <div>
-        <Card key={product.id} className='w-[20%]'>
+      
+      <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'>
+        <Card className='w-full'>
           <CardHeader>
-            <CardTitle>{product.name}</CardTitle>
+            <CardTitle className='text-xl'>{product.name}</CardTitle>
           </CardHeader>
           <CardContent>
             <CardDescription>{product.description}</CardDescription>
-            <CardDescription>₹{product.price}</CardDescription>
+            <CardDescription className='text-lg'>
+              ₹{product.price}
+            </CardDescription>
           </CardContent>
-          <Button className='ml-4 mb-4' onClick={handleAddToCart}>
+          <Button className='ml-4 mt-4 mb-4' onClick={handleAddToCart}>
             Add to Cart
           </Button>
         </Card>
       </div>
+
       <Toaster
         position='bottom-center'
         toastOptions={{
