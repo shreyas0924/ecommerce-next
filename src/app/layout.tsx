@@ -10,6 +10,7 @@ import {
 import Navbar from './components/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Providers } from './providers'
+import { CartProvider } from './context/CartContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,8 +31,10 @@ export default function RootLayout({
           <body className={inter.className}>
             <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
               <Providers>
-                <Navbar />
-                {children}
+                <CartProvider>
+                  <Navbar />
+                  {children}
+                </CartProvider>
               </Providers>
             </ThemeProvider>
           </body>

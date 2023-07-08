@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { useContext } from 'react'
 import { CartContext, ProductType } from '../context/CartContext'
 import toast, { Toaster } from 'react-hot-toast'
@@ -18,13 +18,13 @@ interface ProductProps {
 }
 
 const Product: React.FC<ProductProps> = ({ product }) => {
-  //   const { addToCart } = useContext(CartContext)
+  const { addToCart } = useContext(CartContext)
 
   const handleAddToCart = () => {
-    //     addToCart(product)
+    addToCart(product)
     toast('Added to Cart')
+    
   }
-
   return (
     <>
       <div>
@@ -33,10 +33,10 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             <CardTitle>{product.name}</CardTitle>
           </CardHeader>
           <CardContent>
-            <CardDescription> Description</CardDescription>
+            <CardDescription>{product.description}</CardDescription>
             <CardDescription>₹{product.price}</CardDescription>
           </CardContent>
-          <Button className='ml-4  mb-4' onClick={handleAddToCart}>
+          <Button className='ml-4 mb-4' onClick={handleAddToCart}>
             Add to Cart
           </Button>
         </Card>
@@ -55,4 +55,5 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     </>
   )
 }
+
 export default Product

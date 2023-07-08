@@ -1,26 +1,29 @@
 import prisma from '@/lib/prisma'
 import Product from './components/Product'
+import getData from './api/products'
 
-// async function getUsers() {
-//   const result = await prisma.user.findMany()
-//   console.log(result)
-// }
+export default async function Home() {
+  const data = await getData()
 
-export default function Home() {
-  // getUsers()
   return (
     <main>
       <div className='flex mt-6 justify-center align-middle'>
         <h1 className='text-2xl'>Ecommerce Application</h1>
       </div>
       <div>
-        <Product
-          product={{
-            id: 1,
-            name: 'Nike Air Max',
-            price: 7999,
-          }}
-        />
+        {data.map((item) => {
+          return (
+            <Product
+              key={item.id}
+              product={{
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                description: item.description,
+              }}
+            />
+          )
+        })}
       </div>
     </main>
   )

@@ -1,10 +1,11 @@
 'use client'
-import { createContext, useState } from 'react'
+import { ReactNode, createContext, useState } from 'react'
 
 export type ProductType = {
   id: number
-  name: string
+  name: string | null
   price: number
+  description: string | null
   // Add more properties later
 }
 
@@ -16,11 +17,14 @@ export type CartContextType = {
 
 export const CartContext = createContext<CartContextType>({} as CartContextType)
 
-export const CartProvider: React.FC = ({ children }: any) => {
+export const CartProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}: any) => {
   const [cartItems, setCartItems] = useState<ProductType[]>([])
 
   const addToCart = (product: ProductType) => {
     setCartItems((prevItems) => [...prevItems, product])
+    console.log('Added to cart:', product)
   }
 
   const removeFromCart = (productId: number) => {

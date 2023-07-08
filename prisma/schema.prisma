@@ -13,3 +13,10 @@ model User {
   name    String?  @db.VarChar(255)
   email   String   @unique @db.VarChar(255)
 }
+
+model Product {
+  id Int @id @default(autoincrement())
+  name String? @db.VarChar(255)
+  description String? @db.VarChar(255)
+  price Int
+}
