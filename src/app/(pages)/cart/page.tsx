@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { useLocalStorage } from './useLocalStorage'
 
 const Cart: React.FC = () => {
   const { cartItems, removeFromCart } = useContext(CartContext)
@@ -17,7 +18,7 @@ const Cart: React.FC = () => {
   useEffect(() => {
     const newTotal = cartItems.reduce((acc, item) => acc + item.price, 0)
     setTotal(newTotal)
-  }, [cartItems])
+  }, [cartItems, setTotal])
 
   function handleRemove(item: ProductType) {
     removeFromCart(item.id)
@@ -51,9 +52,7 @@ const Cart: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className='p-4  text-left text-xl'>
-        Sub Total : {total}
-      </div>
+      <div className='p-4  text-left text-xl'>Sub Total : {total}</div>
     </>
   )
 }
