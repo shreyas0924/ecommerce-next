@@ -13,7 +13,8 @@ export type CartContextType = {
   cartItems: ProductType[]
   addToCart: (product: ProductType) => void
   removeFromCart: (productId: number) => void
-  cartCounter : number
+  cartCounter: number
+  isInCart: (product: ProductType) => boolean
 }
 
 export const CartContext = createContext<CartContextType>({} as CartContextType)
@@ -36,8 +37,14 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     setCartCounter((prev) => prev - 1)
   }
 
+  const isInCart = (product: ProductType) => {
+    return cartItems.some((item) => item.id === product.id)
+  }
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, cartCounter }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, cartCounter, isInCart }}
+    >
       {children}
     </CartContext.Provider>
   )

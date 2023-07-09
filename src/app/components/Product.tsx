@@ -12,21 +12,23 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 interface ProductProps {
   product: ProductType
 }
 
 const Product: React.FC<ProductProps> = ({ product }) => {
-  const { addToCart } = useContext(CartContext)
+  const { addToCart, isInCart } = useContext(CartContext)
 
   const handleAddToCart = () => {
     addToCart(product)
     toast('Added to Cart')
   }
+
+  const handleGoToCart = () => {}
   return (
     <>
-      
       <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'>
         <Card className='w-full'>
           <CardHeader>
@@ -38,9 +40,15 @@ const Product: React.FC<ProductProps> = ({ product }) => {
               ₹{product.price}
             </CardDescription>
           </CardContent>
-          <Button className='ml-4 mt-4 mb-4' onClick={handleAddToCart}>
-            Add to Cart
-          </Button>
+          {isInCart(product) ? (
+            <Button className='ml-4 mt-4 mb-4'>
+              <Link href='../cart'>Go to Cart</Link>
+            </Button>
+          ) : (
+            <Button className='ml-4 mt-4 mb-4' onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
+          )}
         </Card>
       </div>
 

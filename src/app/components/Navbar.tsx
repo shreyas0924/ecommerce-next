@@ -39,7 +39,7 @@ function Navbar() {
             <path d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12' />
           </svg>
         </Link>
-        <span className='absolute right-6 top-4 rounded-full w-4 h-4 top right p-0 m-0  font-mono text-sm  leading-tight text-center'>
+        <span className='absolute right-5 top-4 rounded-full w-4 h-4 top right p-0 m-0  font-mono text-sm  leading-tight text-center'>
           {cartCounter}
         </span>
       </div>
