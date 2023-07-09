@@ -25,8 +25,6 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     addToCart(product)
     toast('Added to Cart')
   }
-
-  const handleGoToCart = () => {}
   return (
     <>
       <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'>
