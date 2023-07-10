@@ -9,7 +9,6 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-// import { useLocalStorage } from './useLocalStorage'
 
 const Cart: React.FC = () => {
   const { cartItems, removeFromCart } = useContext(CartContext)
