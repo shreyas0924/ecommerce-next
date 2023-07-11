@@ -1,7 +1,6 @@
 'use client'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext, ProductType } from '../context/CartContext'
-import toast, { Toaster } from 'react-hot-toast'
 
 import {
   Card,
@@ -13,6 +12,8 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { Toaster } from '@/components/ui/toaster'
+import { useToast } from '@/components/ui/use-toast'
 
 interface ProductProps {
   product: ProductType
@@ -20,11 +21,14 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ product }) => {
   const { addToCart, isInCart } = useContext(CartContext)
-
+  const { toast } = useToast()
   const handleAddToCart = () => {
     addToCart(product)
-    toast('Added to Cart')
+    toast({
+      title: 'Added To Cart',
+    })
   }
+
   return (
     <>
       <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'>
@@ -33,8 +37,11 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             <CardTitle className='text-xl'>{product.name}</CardTitle>
           </CardHeader>
           <CardContent>
-            <CardDescription>{product.description}</CardDescription>
-            <CardDescription className='text-lg'>
+            <CardDescription className='text-justify line-clamp-5 '>
+              {product.description}
+            </CardDescription>
+
+            <CardDescription className='text-lg mt-3 dark:text-white text-black '>
               ₹{product.price}
             </CardDescription>
           </CardContent>
@@ -49,18 +56,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
           )}
         </Card>
       </div>
-
-      <Toaster
-        position='bottom-center'
-        toastOptions={{
-          className: '',
-          duration: 2000,
-          style: {
-            background: 'rgb(55 65 81)',
-            color: '#fff',
-          },
-        }}
-      />
+      <Toaster />
     </>
   )
 }
