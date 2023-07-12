@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className='mt-5 flex gap-4'>
+      <div className='mt-5 ml-28 flex gap-6 flex-wrap justify-start items-start  '>
         {data.map((item) => {
           return (
             <Product
