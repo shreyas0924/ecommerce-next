@@ -32,7 +32,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   return (
     <>
       <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'>
-        <Card className='w-full'>
+        <Card className='w-full border-gray-300 dark:border-gray-700 shadow-lg'>
           <CardHeader>
             <CardTitle className='text-xl'>{product.name}</CardTitle>
           </CardHeader>

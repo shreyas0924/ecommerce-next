@@ -9,18 +9,18 @@ function Navbar() {
   const { user } = useUser()
   const { cartCounter } = useContext(CartContext)
   return (
-    <div className='flex  sticky top-0 z-20 font-mono dark:bg-black bg-white'>
-      <Link href='/' className='flex-1 text-3xl   m-5 ml-6 cursor-pointer  '>
+    <div className='flex flex-wrap sticky top-0 z-20 font-mono dark:bg-black bg-white'>
+      <Link href='/' className='flex-1 text-3xl   mt-5 ml-6 cursor-pointer  '>
         <h1>shopwise.com</h1>
       </Link>
-      <div className=' mt-[1.5rem] mr-6 text-[20px] '>
+      <div className='ml-[1.5rem] mt-[1.5rem] mr-4 text-[20px] '>
         Welcome {user?.firstName}
       </div>
       <ThemeToggle />
-      <div className='flex relative'>
+      <div className='flex relative flex-wrap'>
         <Link
           href='/cart'
-          className='text-2xl  text-end mr-6 mt-7 cursor-pointer  ml-5'
+          className='text-2xl  text-end mr-4 mt-7 cursor-pointer  ml-5'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -39,11 +39,11 @@ function Navbar() {
             <path d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12' />
           </svg>
         </Link>
-        <span className='absolute right-5 top-4 rounded-full w-4 h-4 top right p-0 m-0  font-mono text-sm  leading-tight text-center'>
+        <span className='absolute right-3 top-4 rounded-full w-4 h-4 top right p-0 m-0   font-mono text-sm  leading-tight text-center'>
           {cartCounter}
         </span>
       </div>
-      <div className='mt-6 mr-4 ml-5'>
+      <div className='mt-6 mr-4 ml-3'>
         <UserButton />
       </div>
     </div>

@@ -63,7 +63,7 @@ const Cart: React.FC = () => {
   return (
     <>
       <h1 className=' text-2xl ml-6 mt-5'>Shopping Cart</h1>
-      <div className='flex mt-6 ml-2'>
+      <div className='flex flex-wrap mt-6 ml-2'>
         {cartItems.map((item, index) => (
           <div
             className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'
@@ -105,7 +105,7 @@ const Cart: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className='p-4 ml-3 text-left text-xl'>Sub Total : {total}</div>
+      <div className='p-4 ml-3 text-left text-xl'>Sub Total : ₹{total}</div>
 
       <Toaster />
     </>
