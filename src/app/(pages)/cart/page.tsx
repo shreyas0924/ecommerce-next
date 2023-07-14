@@ -84,9 +84,9 @@ const Cart: React.FC = () => {
                 {/* <CardDescription className='text-justify line-clamp-5 '>
                   {item.description}
                 </CardDescription> */}
-                <CardDescription>Price : </CardDescription>
+
                 <CardDescription className='text-lg mt-3 dark:text-white text-black '>
-                  ₹{item.price}
+                  Price : ₹{item.price}
                 </CardDescription>
               </CardContent>
               <div className='flex'>

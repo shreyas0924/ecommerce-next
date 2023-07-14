@@ -49,9 +49,9 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             {/* <CardDescription className='text-justify line-clamp-5 '>
               {product.description}
             </CardDescription> */}
-            <CardDescription>Price : </CardDescription>
+            
             <CardDescription className='text-lg mt-3 dark:text-white text-black '>
-              ₹{product.price}
+              Price : ₹{product.price}
             </CardDescription>
           </CardContent>
           {isInCart(product) ? (
