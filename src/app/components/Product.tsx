@@ -34,36 +34,38 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   return (
     <>
       <div className='w-full sm:w-1/2 md:w-1/4 p-4 h-full '>
-        <Card className='w-full border-gray-300 dark:border-gray-700 shadow-lg'>
-          <CardHeader>
-            <CardTitle className='text-xl mb-5'>{product.name}</CardTitle>
+        <Link key={product.id} href={`/${product.name}`}>
+          <Card className='w-full border-gray-300 dark:border-gray-700 shadow-lg'>
+            <CardHeader>
+              <CardTitle className='text-xl mb-5'>{product.name}</CardTitle>
 
-            <img
-              loading='lazy'
-              src={product.image!}
-              alt='Product Image'
-              className='w-[50%] h-[60%] object-cover'
-            />
-          </CardHeader>
-          <CardContent>
-            {/* <CardDescription className='text-justify line-clamp-5 '>
+              <img
+                loading='lazy'
+                src={product.image!}
+                alt='Product Image'
+                className='w-[50%] h-[60%] object-cover'
+              />
+            </CardHeader>
+            <CardContent>
+              {/* <CardDescription className='text-justify line-clamp-5 '>
               {product.description}
             </CardDescription> */}
-            
-            <CardDescription className='text-lg mt-3 dark:text-white text-black '>
-              Price : ₹{product.price}
-            </CardDescription>
-          </CardContent>
-          {isInCart(product) ? (
-            <Button className='ml-4 mt-4 mb-4'>
-              <Link href='../cart'>Go to Cart</Link>
-            </Button>
-          ) : (
-            <Button className='ml-4 mt-4 mb-4' onClick={handleAddToCart}>
-              Add to Cart
-            </Button>
-          )}
-        </Card>
+
+              <CardDescription className='text-lg mt-3 dark:text-white text-black '>
+                Price : ₹{product.price}
+              </CardDescription>
+            </CardContent>
+            {isInCart(product) ? (
+              <Button className='ml-4 mt-4 mb-4'>
+                <Link href='../cart'>Go to Cart</Link>
+              </Button>
+            ) : (
+              <Button className='ml-4 mt-4 mb-4' onClick={handleAddToCart}>
+                Add to Cart
+              </Button>
+            )}
+          </Card>
+        </Link>
       </div>
       <Toaster />
     </>

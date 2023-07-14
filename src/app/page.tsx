@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma'
 import Product from './components/Product'
 import getData from './api/products'
+import Link from 'next/link'
 
 export default async function Home() {
   const data = await getData()
