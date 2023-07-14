@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className='mt-5 ml-4 mr-4 flex flex-wrap justify-center items-start'>
+      <div className='mt-8 ml-4 mr-4 flex flex-wrap '>
         {data.map((item) => {
           return (
             <Product
@@ -17,6 +17,7 @@ export default async function Home() {
                 name: item.name,
                 price: item.price,
                 description: item.description,
+                image: item.image,
               }}
             />
           )

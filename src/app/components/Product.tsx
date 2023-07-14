@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import { useContext, useState } from 'react'
 import { CartContext, ProductType } from '../context/CartContext'
@@ -14,6 +15,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
+import Image from 'next/image'
 
 interface ProductProps {
   product: ProductType
@@ -31,16 +33,23 @@ const Product: React.FC<ProductProps> = ({ product }) => {
 
   return (
     <>
-      <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'>
+      <div className='w-full sm:w-1/2 md:w-1/4 p-4 h-full '>
         <Card className='w-full border-gray-300 dark:border-gray-700 shadow-lg'>
           <CardHeader>
-            <CardTitle className='text-xl'>{product.name}</CardTitle>
+            <CardTitle className='text-xl mb-5'>{product.name}</CardTitle>
+
+            <img
+              loading='lazy'
+              src={product.image!}
+              alt='Product Image'
+              className='w-[50%] h-[60%] object-cover'
+            />
           </CardHeader>
           <CardContent>
-            <CardDescription className='text-justify line-clamp-5 '>
+            {/* <CardDescription className='text-justify line-clamp-5 '>
               {product.description}
-            </CardDescription>
-
+            </CardDescription> */}
+            <CardDescription>Price : </CardDescription>
             <CardDescription className='text-lg mt-3 dark:text-white text-black '>
               ₹{product.price}
             </CardDescription>

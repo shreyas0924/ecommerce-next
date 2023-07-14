@@ -1,4 +1,5 @@
 'use client'
+import { StaticImageData } from 'next/image'
 import { ReactNode, createContext, useState } from 'react'
 
 export type ProductType = {
@@ -6,6 +7,7 @@ export type ProductType = {
   name: string | null
   price: number
   description: string | null
+  image : string | null
   // Add more properties later
 }
 
