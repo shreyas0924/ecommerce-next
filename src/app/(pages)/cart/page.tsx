@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
+import Link from 'next/link'
 
 const Cart: React.FC = () => {
   const { cartItems, removeFromCart } = useContext(CartContext)
@@ -73,12 +74,14 @@ const Cart: React.FC = () => {
             <Card className='w-full'>
               <CardHeader>
                 <CardTitle className='text-xl'>{item.name}</CardTitle>
-                <img
-                  loading='lazy'
-                  src={item.image!}
-                  alt='Product Image'
-                  className='w-[50%] h-[60%] object-cover'
-                />
+                <Link key={item.id} href={`/${item.name}`}>
+                  <img
+                    loading='lazy'
+                    src={item.image!}
+                    alt='Product Image'
+                    className='w-[50%] h-[60%] object-cover'
+                  />
+                </Link>
               </CardHeader>
               <CardContent>
                 {/* <CardDescription className='text-justify line-clamp-5 '>
