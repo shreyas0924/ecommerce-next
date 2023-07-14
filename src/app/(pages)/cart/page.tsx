@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import React, { useContext, useEffect, useState } from 'react'
 import { CartContext, ProductType } from '../../context/CartContext'
@@ -72,11 +73,18 @@ const Cart: React.FC = () => {
             <Card className='w-full'>
               <CardHeader>
                 <CardTitle className='text-xl'>{item.name}</CardTitle>
+                <img
+                  loading='lazy'
+                  src={item.image!}
+                  alt='Product Image'
+                  className='w-[50%] h-[60%] object-cover'
+                />
               </CardHeader>
               <CardContent>
-                <CardDescription className='text-justify line-clamp-5 '>
+                {/* <CardDescription className='text-justify line-clamp-5 '>
                   {item.description}
-                </CardDescription>
+                </CardDescription> */}
+                <CardDescription>Price : </CardDescription>
                 <CardDescription className='text-lg mt-3 dark:text-white text-black '>
                   ₹{item.price}
                 </CardDescription>
