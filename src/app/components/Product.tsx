@@ -42,7 +42,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                 loading='lazy'
                 src={product.image!}
                 alt='Product Image'
-                className='w-[50%] h-[60%] object-cover'
+                className='w-[50%] h-[50%] object-cover'
               />
             </Link>
           </CardHeader>
