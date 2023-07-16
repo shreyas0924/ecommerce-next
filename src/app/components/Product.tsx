@@ -20,6 +20,7 @@ import Image from 'next/image'
 interface ProductProps {
   product: ProductType
 }
+import { ChevronLeft } from 'lucide-react'
 
 const Product: React.FC<ProductProps> = ({ product }) => {
   const { addToCart, isInCart } = useContext(CartContext)
@@ -33,37 +34,34 @@ const Product: React.FC<ProductProps> = ({ product }) => {
 
   return (
     <>
-      <div className='w-full sm:w-1/2 md:w-1/4 p-4 h-full '>
-        <Card className='w-full border-gray-300 dark:border-gray-700 shadow-lg'>
+      <div className='w-full sm:w-1/2 md:w-1/4 p-4  '>
+        <Card className='w-full h-full border-gray-300 dark:border-gray-700 shadow-lg flex-col'>
           <CardHeader>
-            <CardTitle className='text-xl mb-5'>{product.name}</CardTitle>
+            <CardTitle className='text-xl mb-5 line-clamp-1'>
+              {product.name}
+            </CardTitle>
             <Link key={product.id} href={`/${product.name}`}>
-              <img
-                loading='lazy'
-                src={product.image!}
-                alt='Product Image'
-                className='w-[50%] h-[50%] object-cover'
-              />
+              <div className='w-20 object-fill ml-2'>
+                <img loading='lazy' src={product.image!} alt='Product Image' />
+              </div>
             </Link>
           </CardHeader>
-          <CardContent>
-            {/* <CardDescription className='text-justify line-clamp-5 '>
-              {product.description}
-            </CardDescription> */}
-
-            <CardDescription className='text-lg mt-3 dark:text-white text-black '>
-              Price : ₹{product.price}
-            </CardDescription>
-          </CardContent>
-          {isInCart(product) ? (
-            <Button className='ml-4 mt-4 mb-4'>
-              <Link href='../cart'>Go to Cart</Link>
-            </Button>
-          ) : (
-            <Button className='ml-4 mt-4 mb-4' onClick={handleAddToCart}>
-              Add to Cart
-            </Button>
-          )}
+          <div className='align-bottom'>
+            <CardContent>
+              <CardDescription className='text-lg mt-3 dark:text-white text-black '>
+                Price : ₹{product.price}
+              </CardDescription>
+            </CardContent>
+            {isInCart(product) ? (
+              <Button className='ml-4 mt-4 mb-4 align-bottom'>
+                <Link href='../cart'>Go to Cart</Link>
+              </Button>
+            ) : (
+              <Button className='ml-6 mt-3 mb-4' onClick={handleAddToCart}>
+                Add to Cart
+              </Button>
+            )}
+          </div>
         </Card>
       </div>
       <Toaster />

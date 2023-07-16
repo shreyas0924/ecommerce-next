@@ -2,13 +2,16 @@ import prisma from '@/lib/prisma'
 import Product from './components/Product'
 import getData from './api/products'
 import Link from 'next/link'
+import { ChevronLeft } from 'lucide-react'
 
 export default async function Home() {
   const data = await getData()
 
   return (
     <main>
-      <div className='mt-8 ml-4 mr-4 flex flex-wrap '>
+      
+
+      <div className='mt-4 ml-4 mr-4 flex flex-wrap '>
         {data.map((item) => {
           return (
             <Product

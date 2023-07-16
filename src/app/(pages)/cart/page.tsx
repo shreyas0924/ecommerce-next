@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
 import Link from 'next/link'
+import { ChevronLeft, ChevronLeftSquare } from 'lucide-react'
 
 const Cart: React.FC = () => {
   const { cartItems, removeFromCart } = useContext(CartContext)
@@ -64,6 +65,9 @@ const Cart: React.FC = () => {
 
   return (
     <>
+      <Link href='/' className='cursor-pointer'>
+        <ChevronLeftSquare className='ml-6 mt-5' />
+      </Link>
       <h1 className=' text-2xl ml-6 mt-5'>Shopping Cart</h1>
       <div className='flex flex-wrap mt-6 ml-2'>
         {cartItems.map((item, index) => (
