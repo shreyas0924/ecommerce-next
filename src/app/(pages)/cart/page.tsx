@@ -66,7 +66,7 @@ const Cart: React.FC = () => {
   return (
     <>
       <Link href='/' className='cursor-pointer'>
-        <ChevronLeftSquare className='ml-6 mt-5' />
+        <ChevronLeftSquare className='ml-6 mt-5 w-7 h-7' />
       </Link>
       <h1 className=' text-2xl ml-6 mt-5'>Shopping Cart</h1>
       <div className='flex flex-wrap mt-6 ml-2'>
@@ -79,12 +79,13 @@ const Cart: React.FC = () => {
               <CardHeader>
                 <CardTitle className='text-xl'>{item.name}</CardTitle>
                 <Link key={item.id} href={`/${item.name}`}>
-                  <img
-                    loading='lazy'
-                    src={item.image!}
-                    alt='Product Image'
-                    className='w-[50%] h-[60%] object-cover'
-                  />
+                  <div className='w-20 object-fill ml-2'>
+                    <img
+                      loading='lazy'
+                      src={item.image!}
+                      alt='Product Image'
+                    />
+                  </div>
                 </Link>
               </CardHeader>
               <CardContent>
@@ -98,7 +99,7 @@ const Cart: React.FC = () => {
               </CardContent>
               <div className='flex'>
                 <Button
-                  className='ml-4 mt-4 mb-4'
+                  className='m-4'
                   onClick={() => handleRemove(item)}
                 >
                   Remove

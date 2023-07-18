@@ -53,11 +53,11 @@ const Product: React.FC<ProductProps> = ({ product }) => {
               </CardDescription>
             </CardContent>
             {isInCart(product) ? (
-              <Button className='ml-4 mt-4 mb-4 align-bottom'>
+              <Button className='m-4 align-bottom'>
                 <Link href='../cart'>Go to Cart</Link>
               </Button>
             ) : (
-              <Button className='ml-6 mt-3 mb-4' onClick={handleAddToCart}>
+              <Button className='m-4' onClick={handleAddToCart}>
                 Add to Cart
               </Button>
             )}

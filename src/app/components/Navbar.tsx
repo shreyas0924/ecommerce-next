@@ -9,8 +9,8 @@ function Navbar() {
   const { user } = useUser()
   const { cartCounter } = useContext(CartContext)
   return (
-    <div className='flex flex-wrap sticky top-0 z-20 font-mono dark:bg-[#030711] bg-white mb-5'>
-      <Link href='/' className='flex-1 text-3xl   mt-5 ml-6 cursor-pointer  '>
+    <div className='flex flex-wrap sticky top-0 z-20 font-mono ml-3 md:ml-2 dark:bg-[#030711] bg-white mb-5 pb-5'>
+      <Link href='/' className='flex-1 text-3xl   mt-5 ml-6 cursor-pointer   '>
         <h1>shopwise.com</h1>
       </Link>
       <div className='ml-[1.5rem] mt-[1.5rem] mr-4 text-[20px] '>
@@ -43,7 +43,7 @@ function Navbar() {
           {cartCounter}
         </span>
       </div>
-      <div className='mt-6 mr-4 ml-3'>
+      <div className='mt-6 md:mr-6 ml-3'>
         <UserButton />
       </div>
     </div>

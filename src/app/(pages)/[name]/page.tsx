@@ -19,9 +19,9 @@ export default async function ProductDescription({
   return (
     <>
       <Link href='/' className='cursor-pointer'>
-        <ChevronLeftSquare className='ml-6 mt-5' />
+        <ChevronLeftSquare className='ml-8 mt-5 w-7 h-7' />
       </Link>
-      <div className='text-2xl ml-4'>
+      <div className='text-2xl m-6'>
         Description : {decodedName ? decodedName : 'No name provided'}
       </div>
     </>
