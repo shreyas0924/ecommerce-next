@@ -41,7 +41,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
               {product.name}
             </CardTitle>
             <Link key={product.id} href={`/${product.name}`}>
-              <div className='w-20 object-fill ml-2'>
+              <div className='w-24 h-24 object-cover ml-2'>
                 <img loading='lazy' src={product.image!} alt='Product Image' />
               </div>
             </Link>

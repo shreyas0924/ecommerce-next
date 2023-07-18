@@ -79,7 +79,7 @@ const Cart: React.FC = () => {
               <CardHeader>
                 <CardTitle className='text-xl'>{item.name}</CardTitle>
                 <Link key={item.id} href={`/${item.name}`}>
-                  <div className='w-20 object-fill ml-2'>
+                  <div className='w-24 h-24 object-cover ml-2'>
                     <img
                       loading='lazy'
                       src={item.image!}
@@ -98,10 +98,7 @@ const Cart: React.FC = () => {
                 </CardDescription>
               </CardContent>
               <div className='flex'>
-                <Button
-                  className='m-4'
-                  onClick={() => handleRemove(item)}
-                >
+                <Button className='m-4' onClick={() => handleRemove(item)}>
                   Remove
                 </Button>
 
