@@ -6,18 +6,16 @@ type ProductDescriptionProps = {
   params: { name: string }
 }
 
-export default function ProductDescription({
+export default async function ProductDescription({
   params,
 }: ProductDescriptionProps) {
   const decodedName = decodeURIComponent(params.name)
-  // const product = prisma.product.findUnique({
-  //   where: {
-  //     // Update this part based on your Prisma schema
-  //     // For example, if there is an id field in ProductWhereUniqueInput:
-  //     name: decodedName,
-  //   },
-  // })
-
+  const product = await prisma.product.findFirst({
+    where: {
+      name: decodedName,
+    },
+  })
+  console.log(product)
   return (
     <>
       <Link href='/' className='cursor-pointer'>
