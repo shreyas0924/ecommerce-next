@@ -9,7 +9,7 @@ function Navbar() {
   const { user } = useUser()
   const { cartCounter } = useContext(CartContext)
   return (
-    <div className='flex flex-wrap sticky top-0 z-20 font-mono ml-3 md:ml-2 dark:bg-[#030711] bg-white mb-5 pb-5'>
+    <div className='flex flex-wrap sticky top-0 z-20 font-mono md:ml-2 dark:bg-[#030711] bg-white mb-5 pb-5'>
       <Link href='/' className='flex-1 text-3xl   mt-5 ml-6 cursor-pointer   '>
         <h1>shopwise.com</h1>
       </Link>

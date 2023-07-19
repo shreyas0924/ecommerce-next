@@ -17,36 +17,36 @@ export default async function ProductDescription({
   const product = await getProductByName(name)
   return (
     <>
-      <Link href='/' className='cursor-pointer'>
-        <ChevronLeftSquare className='ml-8 mt-5 w-7 h-7' />
-      </Link>
-      <Card className='mt-5 rounded-xl'>
-        <div className='flex items-center justify-center dark:bg-black'>
-          {product && (
-            <div className='max-w-6xl mx-auto rounded-lg overflow-hidden my-8 flex'>
-              <div className='w-1/2'>
-                <img
-                  src={product?.image ?? ''}
-                  alt={product?.name ?? ''}
-                  className='mt-8 w-[22rem] h-auto'
-                />
-              </div>
-              <div className='p-6 w-1/2'>
-                <CardTitle className='text-xl font-semibold mb-2'>
-                  {product?.name ?? ''}
-                </CardTitle>
-                <CardDescription className='text-base mb-4 text-justify'>
-                  {product?.description ?? ''}
-                </CardDescription>
-                <CardDescription className='font-bold text-base'>
-                  Price: ₹{product?.price ?? ''}
-                </CardDescription>
-                <Button className='mt-5'>Add To Cart</Button>
-              </div>
+    <Link href='/' className='cursor-pointer'>
+      <ChevronLeftSquare className='ml-8 mt-5 w-7 h-7' />
+    </Link>
+    <Card className='mt-5 rounded-xl'>
+      <div className='flex items-center justify-center dark:bg-black'>
+        {product && (
+          <div className='max-w-6xl mx-auto rounded-lg overflow-hidden my-8 flex flex-col sm:flex-row'>
+            <div className='sm:w-1/2'>
+              <img
+                src={product?.image ?? ''}
+                alt={product?.name ?? ''}
+                className='mt-8 w-80 h-auto mx-auto'
+              />
             </div>
-          )}
-        </div>
-      </Card>
-    </>
+            <div className='p-6 sm:w-1/2'>
+              <CardTitle className='text-xl font-semibold mb-2'>
+                {product?.name ?? ''}
+              </CardTitle>
+              <CardDescription className='text-base mb-4 text-justify'>
+                {product?.description ?? ''}
+              </CardDescription>
+              <CardDescription className='font-bold text-base'>
+                Price: ₹{product?.price ?? ''}
+              </CardDescription>
+              <Button className='mt-5'>Add To Cart</Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </Card>
+  </>
   )
 }
