@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CartContext, ProductType } from '../context/CartContext'
 
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -15,12 +14,12 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
-import Image from 'next/image'
+
 
 interface ProductProps {
   product: ProductType
 }
-import { ChevronLeft } from 'lucide-react'
+
 
 const Product: React.FC<ProductProps> = ({ product }) => {
   const { addToCart, isInCart } = useContext(CartContext)

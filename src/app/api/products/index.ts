@@ -5,3 +5,15 @@ export default async function getData() {
   return result
 }
 
+
+
+export async function getProductByName(name: string) {
+  const decodedName = decodeURIComponent(name)
+  const product = await prisma.product.findFirst({
+    where: {
+      name: decodedName,
+    },
+  })
+
+  return product
+}

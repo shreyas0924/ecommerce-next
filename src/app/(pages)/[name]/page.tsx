@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import prisma from '@/lib/prisma'
+
+import { Button } from '@/components/ui/button'
+import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import { ChevronLeftSquare } from 'lucide-react'
 import Link from 'next/link'
+import { getProductByName } from '@/app/api/products'
 
 type ProductDescriptionProps = {
   params: { name: string }
@@ -10,43 +13,40 @@ type ProductDescriptionProps = {
 export default async function ProductDescription({
   params,
 }: ProductDescriptionProps) {
-  const decodedName = decodeURIComponent(params.name)
-  const product = await prisma.product.findFirst({
-    where: {
-      name: decodedName,
-    },
-  })
-  console.log(product)
+  const { name } = params
+  const product = await getProductByName(name)
   return (
     <>
       <Link href='/' className='cursor-pointer'>
         <ChevronLeftSquare className='ml-8 mt-5 w-7 h-7' />
       </Link>
-      <div className='flex flex-col items-center'>
-        <div className='text-2xl m-6 font-bold'>
-          {decodedName ? decodedName : 'No name provided'}
-        </div>
-        {product && (
-          <div className='max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-lg my-8'>
-            <img
-              src={product?.image ?? ''}
-              alt={product?.name ?? ''}
-              className='w-full'
-            />
-            <div className='p-6'>
-              <h2 className='text-xl font-semibold mb-2'>
-                {product?.name ?? ''}
-              </h2>
-              <p className='text-gray-700 text-base mb-4'>
-                {product?.description ?? ''}
-              </p>
-              <p className='text-gray-700 text-base'>
-                Price: ₹{product?.price ?? ''}
-              </p>
+      <Card className='mt-5 rounded-xl'>
+        <div className='flex items-center justify-center dark:bg-black'>
+          {product && (
+            <div className='max-w-6xl mx-auto rounded-lg overflow-hidden my-8 flex'>
+              <div className='w-1/2'>
+                <img
+                  src={product?.image ?? ''}
+                  alt={product?.name ?? ''}
+                  className='mt-8 w-[22rem] h-auto'
+                />
+              </div>
+              <div className='p-6 w-1/2'>
+                <CardTitle className='text-xl font-semibold mb-2'>
+                  {product?.name ?? ''}
+                </CardTitle>
+                <CardDescription className='text-base mb-4 text-justify'>
+                  {product?.description ?? ''}
+                </CardDescription>
+                <CardDescription className='font-bold text-base'>
+                  Price: ₹{product?.price ?? ''}
+                </CardDescription>
+                <Button className='mt-5'>Add To Cart</Button>
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </Card>
     </>
   )
 }
