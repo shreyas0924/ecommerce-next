@@ -77,7 +77,7 @@ const Cart: React.FC = () => {
           >
             <Card className='w-full'>
               <CardHeader>
-                <CardTitle className='text-xl'>{item.name}</CardTitle>
+                <CardTitle className='text-xl line-clamp-1'>{item.name}</CardTitle>
                 <Link key={item.id} href={`/${item.name}`}>
                   <div className='w-24 h-24 object-cover ml-2'>
                     <img
