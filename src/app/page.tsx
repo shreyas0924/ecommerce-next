@@ -30,7 +30,7 @@ export default function Home() {
             <span className='sr-only'>Buy now</span>
           </Link>
           <Link
-            href='/dashboard/stores'
+            href='/sell'
             className={cn(
               buttonVariants({
                 variant: 'outline',
