@@ -27,25 +27,16 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <SignedIn>
-        <html lang='en' suppressHydrationWarning>
-          <body className={inter.className}>
-            <CartProvider>
-              <ThemeProvider
-                attribute='class'
-                defaultTheme='system'
-                enableSystem
-              >
-                <Navbar />
-                <Suspense fallback={<Loading />}>{children}</Suspense>
-              </ThemeProvider>
-            </CartProvider>
-          </body>
-        </html>
-      </SignedIn>
-      <SignedOut>
-        <RedirectToSignIn />
-      </SignedOut>
+      <html lang='en' suppressHydrationWarning>
+        <body className={inter.className}>
+          <CartProvider>
+            <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+              <Navbar />
+              <Suspense fallback={<Loading />}>{children}</Suspense>
+            </ThemeProvider>
+          </CartProvider>
+        </body>
+      </html>
     </ClerkProvider>
   )
 }
