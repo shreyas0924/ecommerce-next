@@ -1,5 +1,6 @@
 "use client"
 import Link from 'next/link'
+import { Skeleton } from "@/components/ui/skeleton"
 
 import { Balancer } from 'react-wrap-balancer'
 import { cn } from '@/lib/utils'
