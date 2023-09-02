@@ -1,9 +1,14 @@
+"use client"
 import Link from 'next/link'
 
 import { Balancer } from 'react-wrap-balancer'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
+import { useUser } from '@clerk/nextjs'
+import Loading from './loading'
 export default function Home() {
+  const { isLoaded } = useUser()
+  if (!isLoaded) return <Loading />
   return (
     <main>
       <section

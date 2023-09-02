@@ -17,29 +17,14 @@ import Loading from '../loading'
 function Navbar() {
   const { user, isSignedIn, isLoaded } = useUser()
   const { cartCounter } = useContext(CartContext)
-  if (!isLoaded) return <Loading />
+  if (!isLoaded) return <div />
   return (
     <div className='flex flex-wrap sticky top-0 z-20 font-sans md:ml-2 dark:bg-[#030711] bg-white mb-5 pb-5'>
       <Link href='/' className='flex mr-5 text-3xl mt-5 ml-6 cursor-pointer'>
         shopwise.com
       </Link>
+
       <NavigationMenuDemo />
-
-      {isSignedIn && <SubNav />}
-      {!isSignedIn && (
-        <Button className='flex justify-center'>
-          <SignInButton />
-        </Button>
-      )}
-    </div>
-  )
-}
-
-function SubNav() {
-  const { user, isSignedIn } = useUser()
-  const { cartCounter } = useContext(CartContext)
-  return (
-    <>
       <div className='md:ml-auto ml-[11%] mt-[1.5rem] mr-4 text-[20px]'>
         Welcome {user?.firstName}
       </div>
@@ -70,11 +55,12 @@ function SubNav() {
           {cartCounter}
         </span>
       </div>
-      <Button className='mt-5 md:mr-6 ml-3'>
-        <SignOutButton  />
-      </Button>
-    </>
+      <div className='mt-6 md:mr-6 ml-3'>
+        <UserButton />
+      </div>
+    </div>
   )
 }
+
 
 export default Navbar
