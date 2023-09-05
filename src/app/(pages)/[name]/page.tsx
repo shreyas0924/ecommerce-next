@@ -39,7 +39,7 @@ export default async function ProductDescription({
                 <CardDescription className='font-bold text-base'>
                   Price: ₹{product?.price ?? ''}
                 </CardDescription>
-                <Link href='/'>
+                <Link href='/products'>
                   <Button className='mt-5'>Go Back</Button>
                 </Link>
               </div>
