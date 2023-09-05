@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { CartContext, ProductType } from '../context/CartContext'
 
 import {
@@ -14,12 +14,15 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
-
+import { cn } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Icons } from '@/components/icons'
+import Image from 'next/image'
 
 interface ProductProps {
   product: ProductType
 }
-
 
 const Product: React.FC<ProductProps> = ({ product }) => {
   const { addToCart, isInCart } = useContext(CartContext)
@@ -36,27 +39,48 @@ const Product: React.FC<ProductProps> = ({ product }) => {
       <div className='w-full sm:w-1/2 md:w-1/4 p-4  '>
         <Card className='w-full h-full border-gray-300 dark:border-gray-700 shadow-lg flex-col'>
           <CardHeader>
-            <CardTitle className='text-xl mb-5 line-clamp-1'>
-              {product.name}
-            </CardTitle>
-            <Link key={product.id} href={`/${product.name}`}>
-              <div className='w-24 h-24 object-cover ml-2'>
-                <img loading='lazy' src={product.image!} alt='Product Image' />
-              </div>
-            </Link>
+            <AspectRatio ratio={5 / 3}>
+              <CardTitle className='text-xl mb-5 line-clamp-1'>
+                {product.name}
+              </CardTitle>
+              <Link key={product.id} href={`/${product.name}`}>
+                {/* {product.price ? (
+                  <div className='w-24 h-24  ml-2'>
+                    <img
+                      className='object-cover'
+                      loading='lazy'
+                      src={product.image!}
+                      alt='Product Image'
+                    />
+                  </div>
+                ) : ( */}
+                <div
+                  aria-label='Placeholder'
+                  role='img'
+                  aria-roledescription='placeholder'
+                  className='flex h-full w-full items-center justify-center bg-secondary'
+                >
+                  <Icons.placeholder
+                    className='h-9 w-9 text-muted-foreground'
+                    aria-hidden='true'
+                  />
+                </div>
+                {/* )} */}
+              </Link>
+            </AspectRatio>
           </CardHeader>
-          <div className='align-bottom'>
+          <div className='align-bottom mt-10'>
             <CardContent>
-              <CardDescription className='text-lg mt-3 dark:text-white text-black '>
+              <CardDescription className='text-lg dark:text-white text-black '>
                 Price : ₹{product.price}
               </CardDescription>
             </CardContent>
             {isInCart(product) ? (
-              <Button className='m-4 align-bottom'>
+              <Button className='my-4 mx-6 align-bottom'>
                 <Link href='../cart'>Go to Cart</Link>
               </Button>
             ) : (
-              <Button className='m-4' onClick={handleAddToCart}>
+              <Button className='my-4 mx-6' onClick={handleAddToCart}>
                 Add to Cart
               </Button>
             )}

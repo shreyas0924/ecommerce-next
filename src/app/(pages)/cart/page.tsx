@@ -14,6 +14,8 @@ import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
 import Link from 'next/link'
 import { ChevronLeft, ChevronLeftSquare } from 'lucide-react'
+import { Icons } from '@/components/icons'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 
 const Cart: React.FC = () => {
   const { cartItems, removeFromCart } = useContext(CartContext)
@@ -65,7 +67,7 @@ const Cart: React.FC = () => {
 
   return (
     <>
-      <Link href='/' className='cursor-pointer'>
+      <Link href='/products' className='cursor-pointer'>
         <ChevronLeftSquare className='ml-6 mt-5 w-7 h-7' />
       </Link>
       <h1 className=' text-2xl ml-6 mt-5'>Shopping Cart</h1>
@@ -77,20 +79,38 @@ const Cart: React.FC = () => {
           >
             <Card className='w-full'>
               <CardHeader>
-                <CardTitle className='text-xl line-clamp-1'>{item.name}</CardTitle>
-                <Link key={item.id} href={`/${item.name}`}>
-                  <div className='w-24 h-24 object-cover ml-2'>
+                <AspectRatio ratio={5 / 3}>
+                  <CardTitle className='text-xl mb-5 line-clamp-1'>
+                    {item.name}
+                  </CardTitle>
+                  <Link key={item.id} href={`/${item.name}`}>
+                    {/* {product.price ? (
+                  <div className='w-24 h-24  ml-2'>
                     <img
+                      className='object-cover'
                       loading='lazy'
-                      src={item.image!}
+                      src={product.image!}
                       alt='Product Image'
                     />
                   </div>
-                </Link>
+                ) : ( */}
+                    <div
+                      aria-label='Placeholder'
+                      role='img'
+                      aria-roledescription='placeholder'
+                      className='flex h-full w-full items-center justify-center bg-secondary'
+                    >
+                      <Icons.placeholder
+                        className='h-9 w-9 text-muted-foreground'
+                        aria-hidden='true'
+                      />
+                    </div>
+                    {/* )} */}
+                  </Link>
+                </AspectRatio>
               </CardHeader>
               <CardContent>
-
-                <CardDescription className='text-lg mt-3 dark:text-white text-black '>
+                <CardDescription className='text-lg mt-10 dark:text-white text-black '>
                   Price : ₹{item.price}
                 </CardDescription>
               </CardContent>

@@ -24,7 +24,6 @@ function Navbar() {
         shopwise.com
       </Link>
 
-      <NavigationMenuDemo />
       <div className='md:ml-auto ml-[11%] mt-[1.5rem] mr-4 text-[20px]'>
         Welcome {user?.firstName}
       </div>
@@ -61,6 +60,5 @@ function Navbar() {
     </div>
   )
 }
-
 
 export default Navbar

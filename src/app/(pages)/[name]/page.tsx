@@ -17,7 +17,7 @@ export default async function ProductDescription({
   const product = await getProductByName(name)
   return (
     <>
-      <Link href='/' className='cursor-pointer'>
+      <Link href='/products' className='cursor-pointer'>
         <ChevronLeftSquare className='ml-8 mt-5 w-7 h-7' />
       </Link>
       <Card className='mt-5 rounded-xl'>
