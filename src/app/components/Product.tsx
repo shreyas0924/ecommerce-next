@@ -44,7 +44,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                 {product.name}
               </CardTitle>
               <Link key={product.id} href={`/${product.name}`}>
-                {/* {product.price ? (
+                {product.price ? (
                   <div className='w-24 h-24  ml-2'>
                     <img
                       className='object-cover'
@@ -53,19 +53,19 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                       alt='Product Image'
                     />
                   </div>
-                ) : ( */}
-                <div
-                  aria-label='Placeholder'
-                  role='img'
-                  aria-roledescription='placeholder'
-                  className='flex h-full w-full items-center justify-center bg-secondary'
-                >
-                  <Icons.placeholder
-                    className='h-9 w-9 text-muted-foreground'
-                    aria-hidden='true'
-                  />
-                </div>
-                {/* )} */}
+                ) : (
+                  <div
+                    aria-label='Placeholder'
+                    role='img'
+                    aria-roledescription='placeholder'
+                    className='flex h-full w-full items-center justify-center bg-secondary'
+                  >
+                    <Icons.placeholder
+                      className='h-9 w-9 text-muted-foreground'
+                      aria-hidden='true'
+                    />
+                  </div>
+                )}
               </Link>
             </AspectRatio>
           </CardHeader>

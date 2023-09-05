@@ -5,6 +5,7 @@ import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import { ChevronLeftSquare } from 'lucide-react'
 import Link from 'next/link'
 import { getProductByName } from '@/app/api/products'
+import { Shell } from '@/components/ui/shell'
 
 type ProductDescriptionProps = {
   params: { name: string }
@@ -16,11 +17,8 @@ export default async function ProductDescription({
   const { name } = params
   const product = await getProductByName(name)
   return (
-    <>
-      <Link href='/products' className='cursor-pointer'>
-        <ChevronLeftSquare className='ml-8 mt-5 w-7 h-7' />
-      </Link>
-      <Card className='mt-5 rounded-xl'>
+    <Shell>
+      <Card className='mt-5 rounded-xl border-0'>
         <div className='flex items-center justify-center dark:bg-black'>
           {product && (
             <div className='max-w-6xl mx-auto rounded-lg overflow-hidden my-8 flex flex-col sm:flex-row'>
@@ -49,6 +47,6 @@ export default async function ProductDescription({
           )}
         </div>
       </Card>
-    </>
+    </Shell>
   )
 }

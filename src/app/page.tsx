@@ -7,11 +7,12 @@ import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
 import { useUser } from '@clerk/nextjs'
 import Loading from './loading'
+import { Shell } from '@/components/ui/shell'
 export default function Home() {
   const { isLoaded } = useUser()
   if (!isLoaded) return <Loading />
   return (
-    <main>
+    <Shell>
       <section
         id='hero'
         aria-labelledby='hero-heading'
@@ -24,7 +25,7 @@ export default function Home() {
           Buy and sell products from independent brands and stores around the
           world
         </Balancer>
-        <div className='flex flex-wrap items-center justify-center gap-4'>
+        <div className='flex flex-wrap items-center justify-center gap-4 mb-24'>
           <Link href='/products' className={cn(buttonVariants())}>
             Buy now
             <span className='sr-only'>Buy now</span>
@@ -42,6 +43,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-    </main>
+    </Shell>
   )
 }

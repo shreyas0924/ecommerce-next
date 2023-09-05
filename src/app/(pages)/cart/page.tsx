@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { ChevronLeft, ChevronLeftSquare } from 'lucide-react'
 import { Icons } from '@/components/icons'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Shell } from '@/components/ui/shell'
 
 const Cart: React.FC = () => {
   const { cartItems, removeFromCart } = useContext(CartContext)
@@ -66,11 +67,14 @@ const Cart: React.FC = () => {
   }
 
   return (
-    <>
+    <Shell>
       <Link href='/products' className='cursor-pointer'>
-        <ChevronLeftSquare className='ml-6 mt-5 w-7 h-7' />
+        <ChevronLeftSquare className='ml-6 w-7 h-7' />
       </Link>
-      <h1 className=' text-2xl ml-6 mt-5'>Shopping Cart</h1>
+      <div className='flex'>
+        <div className=' text-xl ml-6 '>Shopping Cart</div>
+        <div className=' ml-auto text-left text-xl'>Sub Total : ₹{total}</div>
+      </div>
       <div className='flex flex-wrap mt-6 ml-2'>
         {cartItems.map((item, index) => (
           <div
@@ -84,28 +88,28 @@ const Cart: React.FC = () => {
                     {item.name}
                   </CardTitle>
                   <Link key={item.id} href={`/${item.name}`}>
-                    {/* {product.price ? (
-                  <div className='w-24 h-24  ml-2'>
-                    <img
-                      className='object-cover'
-                      loading='lazy'
-                      src={product.image!}
-                      alt='Product Image'
-                    />
-                  </div>
-                ) : ( */}
-                    <div
-                      aria-label='Placeholder'
-                      role='img'
-                      aria-roledescription='placeholder'
-                      className='flex h-full w-full items-center justify-center bg-secondary'
-                    >
-                      <Icons.placeholder
-                        className='h-9 w-9 text-muted-foreground'
-                        aria-hidden='true'
-                      />
-                    </div>
-                    {/* )} */}
+                    {item.price ? (
+                      <div className='w-24 h-24  ml-2'>
+                        <img
+                          className='object-cover'
+                          loading='lazy'
+                          src={item.image!}
+                          alt='Product Image'
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        aria-label='Placeholder'
+                        role='img'
+                        aria-roledescription='placeholder'
+                        className='flex h-full w-full items-center justify-center bg-secondary'
+                      >
+                        <Icons.placeholder
+                          className='h-9 w-9 text-muted-foreground'
+                          aria-hidden='true'
+                        />
+                      </div>
+                    )}
                   </Link>
                 </AspectRatio>
               </CardHeader>
@@ -135,10 +139,9 @@ const Cart: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className='p-4 ml-3 text-left text-xl'>Sub Total : ₹{total}</div>
 
       <Toaster />
-    </>
+    </Shell>
   )
 }
 

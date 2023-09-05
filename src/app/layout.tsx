@@ -1,18 +1,13 @@
-// app/layout.tsx
 import './globals.css'
 import { Inter } from 'next/font/google'
-import {
-  ClerkProvider,
-  RedirectToSignIn,
-  SignedIn,
-  SignedOut,
-} from '@clerk/nextjs'
+import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from './components/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
 import { CartProvider } from './context/CartContext'
 import { Suspense } from 'react'
 import Loading from './loading'
-import Home from './page'
+
+import { SiteFooter } from './components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,6 +29,7 @@ export default function RootLayout({
             <CartProvider>
               <Navbar />
               <Suspense fallback={<Loading />}>{children}</Suspense>
+              <SiteFooter />
             </CartProvider>
           </ThemeProvider>
         </body>
