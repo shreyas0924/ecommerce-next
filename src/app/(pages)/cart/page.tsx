@@ -88,7 +88,7 @@ const Cart: React.FC = () => {
         </PageHeaderDescription>
       </PageHeader>
 
-      <div className='flex flex-wrap mt-6 ml-7'>
+      <div className='flex flex-wrap mt-6 ml-7 gap-4'>
         {cartItems.map((item, index) => (
           <div
             className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 '
