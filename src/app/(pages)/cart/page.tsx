@@ -67,80 +67,82 @@ const Cart: React.FC = () => {
   }
 
   return (
-    <Shell>
-      <Link href='/products' className='cursor-pointer'>
-        <ChevronLeftSquare className='ml-6 w-7 h-7' />
-      </Link>
-      <div className='flex'>
-        <div className=' text-xl ml-6 '>Shopping Cart</div>
-        <div className=' ml-auto text-left text-xl'>Sub Total : ₹{total}</div>
-      </div>
-      <div className='flex flex-wrap mt-6 ml-2'>
-        {cartItems.map((item, index) => (
-          <div
-            className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4'
-            key={item.id}
-          >
-            <Card className='w-full'>
-              <CardHeader>
-                <AspectRatio ratio={5 / 3}>
-                  <CardTitle className='text-xl mb-5 line-clamp-1'>
-                    {item.name}
-                  </CardTitle>
-                  <Link key={item.id} href={`/${item.name}`}>
-                    {item.price ? (
-                      <div className='w-24 h-24  ml-2'>
-                        <img
-                          className='object-cover'
-                          loading='lazy'
-                          src={item.image!}
-                          alt='Product Image'
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        aria-label='Placeholder'
-                        role='img'
-                        aria-roledescription='placeholder'
-                        className='flex h-full w-full items-center justify-center bg-secondary'
-                      >
-                        <Icons.placeholder
-                          className='h-9 w-9 text-muted-foreground'
-                          aria-hidden='true'
-                        />
-                      </div>
-                    )}
-                  </Link>
-                </AspectRatio>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className='text-lg mt-10 dark:text-white text-black '>
-                  Price : ₹{item.price}
-                </CardDescription>
-              </CardContent>
-              <div className='flex'>
-                <Button className='m-4' onClick={() => handleRemove(item)}>
-                  Remove
-                </Button>
-
-                <div className='flex gap-4 text-2xl ml-auto mr-5 mt-4'>
-                  <Button variant='outline' onClick={() => sub(index)}>
-                    -
-                  </Button>
-                  <CardDescription className='mt-3'>
-                    {quantities[index]}
+    <Shell className=''>
+      
+        <Link href='/products' className='cursor-pointer'>
+          <ChevronLeftSquare className='ml-6 w-7 h-7' />
+        </Link>
+        <div className='flex'>
+          <div className=' text-xl ml-6 '>Shopping Cart</div>
+          <div className=' ml-auto text-left text-xl'>Sub Total : ₹{total}</div>
+        </div>
+        <div className='flex flex-wrap mt-6 ml-2'>
+          {cartItems.map((item, index) => (
+            <div
+              className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 '
+              key={item.id}
+            >
+              <Card className='w-full'>
+                <CardHeader>
+                  <AspectRatio ratio={5 / 3}>
+                    <CardTitle className='text-xl mb-5 line-clamp-1'>
+                      {item.name}
+                    </CardTitle>
+                    <Link key={item.id} href={`/${item.name}`}>
+                      {item.price ? (
+                        <div className='w-24 h-24  ml-2'>
+                          <img
+                            className='object-cover'
+                            loading='lazy'
+                            src={item.image!}
+                            alt='Product Image'
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          aria-label='Placeholder'
+                          role='img'
+                          aria-roledescription='placeholder'
+                          className='flex h-full w-full items-center justify-center bg-secondary'
+                        >
+                          <Icons.placeholder
+                            className='h-9 w-9 text-muted-foreground'
+                            aria-hidden='true'
+                          />
+                        </div>
+                      )}
+                    </Link>
+                  </AspectRatio>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className='text-lg mt-10 dark:text-white text-black '>
+                    Price : ₹{item.price}
                   </CardDescription>
-                  <Button variant='outline' onClick={() => add(index)}>
-                    +
+                </CardContent>
+                <div className='flex'>
+                  <Button className='m-4' onClick={() => handleRemove(item)}>
+                    Remove
                   </Button>
-                </div>
-              </div>
-            </Card>
-          </div>
-        ))}
-      </div>
 
-      <Toaster />
+                  <div className='flex gap-4 text-2xl ml-auto mr-5 mt-4'>
+                    <Button variant='outline' onClick={() => sub(index)}>
+                      -
+                    </Button>
+                    <CardDescription className='mt-3'>
+                      {quantities[index]}
+                    </CardDescription>
+                    <Button variant='outline' onClick={() => add(index)}>
+                      +
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+
+        <Toaster />
+     
     </Shell>
   )
 }
