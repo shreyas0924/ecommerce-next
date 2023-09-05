@@ -1,6 +1,6 @@
 export const links = {
   twitter: 'https://twitter.com/Shreyas0924',
-  github: 'https://github.com/sadmann7/shreyas0924',
+  github: 'https://github.com/shreyas0924',
 }
 export const siteConfig = {
   name: 'Shopwise',

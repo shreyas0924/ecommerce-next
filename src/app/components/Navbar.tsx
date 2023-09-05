@@ -10,7 +10,7 @@ import {
 import Link from 'next/link'
 import { CartContext } from '../context/CartContext'
 import { useContext } from 'react'
-import { NavigationMenuDemo } from './nav-menu'
+
 import { Button } from '@/components/ui/button'
 import Loading from '../loading'
 import { Shell } from '@/components/ui/shell'
@@ -28,7 +28,7 @@ function Navbar() {
           </Link>
 
           <div className='md:ml-auto mr-4 text-[20px] '>
-            Welcome {user?.firstName}
+            Welcome {user?.firstName} {user?.lastName}
           </div>
           <ThemeToggle />
           <div className='flex relative flex-wrap'>
@@ -57,7 +57,7 @@ function Navbar() {
               {cartCounter}
             </span>
           </div>
-          <div className='md:mt-1 md:mr-6 ml-3'>
+          <div className='md:mt-1 ml-3'>
             <UserButton />
           </div>
         </div>
