@@ -24,7 +24,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang='en' suppressHydrationWarning>
-        <body className={inter.className}>
+        <body
+          className={`${inter.className} h-screen dark:bg-gradient-to-r dark:from-[#0F172A] dark:to-[#17233f]  bg-gradient-to-r from-slate-100 to-[#d4e7ff] `}
+        >
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
             <CartProvider>
               <Navbar />

@@ -36,8 +36,8 @@ const Product: React.FC<ProductProps> = ({ product }) => {
 
   return (
     <>
-      <div className='w-full sm:w-1/2 md:w-1/4 p-4  '>
-        <Card className='w-full h-full border-gray-300 dark:border-gray-700 shadow-lg flex-col'>
+      <div className='w-full sm:w-1/2 md:w-1/4 p-4   '>
+        <Card className='w-full h-full border-gray-300 dark:border-gray-700 shadow-lg flex-col dark:bg-[#1b2534]'>
           <CardHeader>
             <AspectRatio ratio={5 / 3}>
               <CardTitle className='text-xl mb-5 line-clamp-1'>

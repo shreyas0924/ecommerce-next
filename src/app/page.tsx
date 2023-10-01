@@ -1,6 +1,6 @@
-"use client"
+'use client'
 import Link from 'next/link'
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from '@/components/ui/skeleton'
 
 import { Balancer } from 'react-wrap-balancer'
 import { cn } from '@/lib/utils'
@@ -16,7 +16,7 @@ export default function Home() {
       <section
         id='hero'
         aria-labelledby='hero-heading'
-        className='mx-auto flex w-full max-w-[64rem] flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28'
+        className='mx-auto flex w-full max-w-[64rem] flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28 '
       >
         <h1 className='text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
           An e-commerce application built with everything new in Next.js 13

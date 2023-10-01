@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <header className='border-b '>
       <Shell variant='default'>
-        <div className='flex flex-wrap sticky top-0 z-20 font-sans md:ml-2 dark:bg-[#030711] bg-white '>
+        <div className='flex flex-wrap sticky top-0 z-20 font-sans md:ml-2   '>
           <Link href='/' className='flex mr-5 text-3xl  cursor-pointer mb-2 '>
             shopwise.com
           </Link>

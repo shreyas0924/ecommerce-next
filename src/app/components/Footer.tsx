@@ -14,7 +14,7 @@ export function SiteFooter() {
   const { isLoaded } = useUser()
   if (!isLoaded) return <div />
   return (
-    <footer className='border-t bg-background '>
+    <footer className='border-t  '>
       <Shell as='div'>
         <section
           id='footer-content'
@@ -45,7 +45,7 @@ export function SiteFooter() {
           aria-labelledby='footer-bottom-heading'
           className='flex items-center space-x-4'
         >
-          <div className='flex-1 text-left text-sm leading-loose text-muted-foreground'>
+          <div className='flex-1 text-left text-sm leading-loose '>
             Built by{' '}
             <a
               aria-label='Kickflip tutorial on YouTube'
