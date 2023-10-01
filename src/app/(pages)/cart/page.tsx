@@ -90,44 +90,41 @@ const Cart: React.FC = () => {
 
       <div className='flex flex-wrap mt-6 ml-7 gap-4'>
         {cartItems.map((item, index) => (
-          <div
-            className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 '
-            key={item.id}
-          >
-            <Card className='w-full'>
+          <div className='w-full sm:w-1/2 md:w-1/4 p-3' key={item.id}>
+            <Card className='w-full h-full border-gray-300 dark:border-gray-700 shadow-lg flex-col dark:bg-[#151e34]'>
               <CardHeader>
-                <AspectRatio ratio={5 / 3}>
-                  <CardTitle className='text-xl mb-5 line-clamp-1'>
+                <AspectRatio ratio={5 / 4}>
+                  <CardTitle className='text-lg my-4 mx-2 ml-5 line-clamp-1'>
                     {item.name}
                   </CardTitle>
                   <Link key={item.id} href={`/${item.name}`}>
-                    {item.price ? (
-                      <div className='w-24 h-24  ml-2'>
-                        <img
-                          className='object-cover'
-                          loading='lazy'
-                          src={item.image!}
-                          alt='Product Image'
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        aria-label='Placeholder'
-                        role='img'
-                        aria-roledescription='placeholder'
-                        className='flex h-full w-full items-center justify-center bg-secondary'
-                      >
-                        <Icons.placeholder
-                          className='h-9 w-9 text-muted-foreground'
-                          aria-hidden='true'
-                        />
-                      </div>
-                    )}
+                    {/* {product.price ? (
+                  <div className='w-24 h-24  ml-2'>
+                    <img
+                      className='object-fill'
+                      loading='lazy'
+                      src={product.image!}
+                      alt='Product Image'
+                    />
+                  </div>
+                ) : ( */}
+                    <div
+                      aria-label='Placeholder'
+                      role='img'
+                      aria-roledescription='placeholder'
+                      className='flex h-full w-full items-center justify-center bg-secondary'
+                    >
+                      <Icons.placeholder
+                        className='h-9 w-9 text-muted-foreground'
+                        aria-hidden='true'
+                      />
+                    </div>
+                    {/* )} */}
                   </Link>
                 </AspectRatio>
               </CardHeader>
               <CardContent>
-                <CardDescription className='text-lg mt-10 dark:text-white text-black '>
+                <CardDescription className='text-lg dark:text-white text-black mt-20 '>
                   Price : ₹{item.price}
                 </CardDescription>
               </CardContent>
@@ -152,6 +149,10 @@ const Cart: React.FC = () => {
           </div>
         ))}
       </div>
+
+      <Button className='w-1/5 ml-auto' disabled={cartItems.length === 0}>
+        Checkout
+      </Button>
 
       <Toaster />
     </Shell>

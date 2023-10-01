@@ -36,40 +36,40 @@ const Product: React.FC<ProductProps> = ({ product }) => {
 
   return (
     <>
-      <div className='w-full sm:w-1/2 md:w-1/4 p-4   '>
-        <Card className='w-full h-full border-gray-300 dark:border-gray-700 shadow-lg flex-col dark:bg-[#1b2534]'>
+      <div className='w-full sm:w-1/2 md:w-1/4 p-3 '>
+        <Card className='w-full h-full border-gray-300 dark:border-gray-700 shadow-lg flex-col dark:bg-[#151e34]'>
           <CardHeader>
-            <AspectRatio ratio={5 / 3}>
-              <CardTitle className='text-xl mb-5 line-clamp-1'>
+            <AspectRatio ratio={5 / 4}>
+              <CardTitle className='text-lg my-4 mx-2 ml-5 line-clamp-1'>
                 {product.name}
               </CardTitle>
               <Link key={product.id} href={`/${product.name}`}>
-                {product.price ? (
+                {/* {product.price ? (
                   <div className='w-24 h-24  ml-2'>
                     <img
-                      className='object-cover'
+                      className='object-fill'
                       loading='lazy'
                       src={product.image!}
                       alt='Product Image'
                     />
                   </div>
-                ) : (
-                  <div
-                    aria-label='Placeholder'
-                    role='img'
-                    aria-roledescription='placeholder'
-                    className='flex h-full w-full items-center justify-center bg-secondary'
-                  >
-                    <Icons.placeholder
-                      className='h-9 w-9 text-muted-foreground'
-                      aria-hidden='true'
-                    />
-                  </div>
-                )}
+                ) : ( */}
+                <div
+                  aria-label='Placeholder'
+                  role='img'
+                  aria-roledescription='placeholder'
+                  className='flex h-full w-full items-center justify-center bg-secondary'
+                >
+                  <Icons.placeholder
+                    className='h-9 w-9 text-muted-foreground'
+                    aria-hidden='true'
+                  />
+                </div>
+                {/* )} */}
               </Link>
             </AspectRatio>
           </CardHeader>
-          <div className='align-bottom mt-10'>
+          <div className='align-bottom mt-20'>
             <CardContent>
               <CardDescription className='text-lg dark:text-white text-black '>
                 Price : ₹{product.price}

@@ -18,7 +18,7 @@ export default async function ProductDescription({
   const product = await getProductByName(name)
   return (
     <Shell>
-      <Card className='mt-5 rounded-xl border-0 dark:bg-[#1E293B]'>
+      <Card className='mt-5 rounded-xl border-0 bg-transparent'>
         <div className='flex items-center justify-center '>
           {product && (
             <div className='max-w-6xl mx-auto rounded-lg overflow-hidden my-8 flex flex-col sm:flex-row'>
