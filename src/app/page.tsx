@@ -22,8 +22,8 @@ export default function Home() {
           An e-commerce application built with everything new in Next.js 13
         </h1>
         <Balancer className='max-w-[46rem] text-lg text-muted-foreground sm:text-xl'>
-          Buy and sell products from independent brands and stores around the
-          world
+          Buy and sell products from brands and independent stores around the
+          world.
         </Balancer>
         <div className='flex flex-wrap items-center justify-center gap-4 mb-24'>
           <Link href='/products' className={cn(buttonVariants())}>
