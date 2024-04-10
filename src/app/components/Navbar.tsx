@@ -1,24 +1,24 @@
-'use client'
-import { ThemeToggle } from '@/components/theme-toggle'
+'use client';
+import { ThemeToggle } from '@/components/theme-toggle';
 import {
   SignInButton,
   SignOutButton,
   UserButton,
   redirectToSignIn,
   useUser,
-} from '@clerk/nextjs'
-import Link from 'next/link'
-import { CartContext } from '../context/CartContext'
-import { useContext } from 'react'
+} from '@clerk/nextjs';
+import Link from 'next/link';
+import { CartContext } from '../context/CartContext';
+import { useContext } from 'react';
 
-import { Button } from '@/components/ui/button'
-import Loading from '../loading'
-import { Shell } from '@/components/ui/shell'
+import { Button } from '@/components/ui/button';
+import Loading from '../loading';
+import { Shell } from '@/components/ui/shell';
 
 function Navbar() {
-  const { user, isSignedIn, isLoaded } = useUser()
-  const { cartCounter } = useContext(CartContext)
-  if (!isLoaded) return <div />
+  const { user, isSignedIn, isLoaded } = useUser();
+  const { cartCounter } = useContext(CartContext);
+  if (!isLoaded) return <div />;
   return (
     <header className='border-b '>
       <Shell variant='default'>
@@ -57,13 +57,13 @@ function Navbar() {
               {cartCounter}
             </span>
           </div>
-          <div className='md:mt-1 ml-3'>
+          <div className=' ml-3'>
             <UserButton />
           </div>
         </div>
       </Shell>
     </header>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

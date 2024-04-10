@@ -1,21 +1,21 @@
-'use client'
-import Link from 'next/link'
+'use client';
+import Link from 'next/link';
 
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 
-import { Icons } from '@/components/icons'
+import { Icons } from '@/components/icons';
 
-import { Shell } from '@/components/ui/shell'
-import { links, siteConfig } from '@/lib/siteConfig'
-import { useUser } from '@clerk/nextjs'
+import { Shell } from '@/components/ui/shell';
+import { links, siteConfig } from '@/lib/siteConfig';
+import { useUser } from '@clerk/nextjs';
 
 export function SiteFooter() {
-  const { isLoaded } = useUser()
-  if (!isLoaded) return <div />
+  const { isLoaded } = useUser();
+  if (!isLoaded) return <div />;
   return (
-    <footer className='border-t  '>
-      <Shell as='div'>
+    <footer className='border-t mt-auto'>
+      <Shell as='div' className='mt-auto'>
         <section
           id='footer-content'
           aria-labelledby='footer-content-heading'
@@ -91,5 +91,5 @@ export function SiteFooter() {
         </section>
       </Shell>
     </footer>
-  )
+  );
 }
